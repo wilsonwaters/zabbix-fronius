@@ -19,7 +19,7 @@ The template uses Zabbix dependent items to reduce the number of API calls made 
 1. Download fronius.xml
 1. Login to Zabbix and navigate to Configuration -> Templates -> Import
 1. Import fronius.xml
-1. Create a host and specify the inverter IP or hostname in the Agen Interface field
+1. Create a host and specify the inverter IP or hostname in the Agent Interface field
 1. Add the template to the host
 1. (optional) Add a macro for the host to monitor {$DEVICE_ID} => 2 (default is 1, when you only have a single device monitored)
 1. Save and test you can see data
