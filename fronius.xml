@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2020-01-29T13:23:09Z</date>
+    <date>2020-01-29T14:40:46Z</date>
     <groups>
         <group>
             <name>Solar</name>
@@ -12,9 +12,9 @@
             <template>Fronius Solar</template>
             <name>Fronius Solar</name>
             <description>Uses Fronius API V1 to query inverter&#13;
-Make sure you update the following tags after linking the template&#13;
-FRONIUS_HOST: hostname of the inverter/datamanager&#13;
-DEVICE_ID: the device you want to monitor (defaults to 1 if you only have 1 inverter)</description>
+Make sure you update the following macros after linking the template&#13;
+DEVICE_ID: the device you want to monitor (defaults to 1 if you only have 1 inverter).&#13;
+Make sure your host has a hsotname of ip address configured. This must be the address of the Fronius device to monitor</description>
             <groups>
                 <group>
                     <name>Solar</name>
@@ -279,7 +279,7 @@ return dayEnergy ;</params>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetInverterRealtimeData.cgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetInverterRealtimeData.cgi</url>
                     <query_fields>
                         <query_field>
                             <name>Scope</name>
@@ -343,7 +343,7 @@ return dayEnergy ;</params>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetInverterRealtimeData.cgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetInverterRealtimeData.cgi</url>
                     <query_fields>
                         <query_field>
                             <name>DataCollection</name>
@@ -415,7 +415,7 @@ return dayEnergy ;</params>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetInverterRealtimeData.cgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetInverterRealtimeData.cgi</url>
                     <query_fields>
                         <query_field>
                             <name>DataCollection</name>
@@ -488,7 +488,7 @@ These items only work if your system has a smart meter installed</description>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetMeterRealtimeData.fcgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetMeterRealtimeData.cgi</url>
                     <query_fields>
                         <query_field>
                             <name>Scope</name>
@@ -552,7 +552,7 @@ These items only work if your system has a smart meter installed</description>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetOhmPilotRealtimeData.cgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetOhmPilotRealtimeData.cgi</url>
                     <query_fields>
                         <query_field>
                             <name>Scope</name>
@@ -620,7 +620,7 @@ These items only work if your system has a smart meter installed</description>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>30s</timeout>
-                    <url>{$FRONIUS_HOST}/solar_api/v1/GetPowerFlowRealtimeData.fcgi</url>
+                    <url>http://{HOST.CONN}/solar_api/v1/GetPowerFlowRealtimeData.fcgi</url>
                     <query_fields/>
                     <posts/>
                     <status_codes>200</status_codes>
@@ -989,7 +989,7 @@ These items only work if your system has a smart meter installed</description>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
-                    <value_type>3</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
                     <units/>
                     <snmpv3_contextname/>
@@ -2514,10 +2514,6 @@ return va;</params>
                 <macro>
                     <macro>{$DEVICE_ID}</macro>
                     <value>1</value>
-                </macro>
-                <macro>
-                    <macro>{$FRONIUS_HOST}</macro>
-                    <value>http://setme</value>
                 </macro>
             </macros>
             <templates/>
