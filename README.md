@@ -9,10 +9,10 @@ This [Zabbix](https://www.zabbix.com/) template allows monitoring of Fronius dev
 The template uses Zabbix dependant items to reduce the number of API calls made to the device. One API call is made and multiple dependant items use javascript pre-processing to parse the required field from the response.
 
 # Requirements
-* Zabbix 4.2 or greater (uses [Javascript preprocessing](https://blog.zabbix.com/javascript-support-in-item-preprocessing/6901/)
+* Zabbix 4.2 or greater (uses [Javascript preprocessing](https://blog.zabbix.com/javascript-support-in-item-preprocessing/6901/))
 * A fronius inverter which supports the [Fronius Solar API V1](https://www.fronius.com/en/photovoltaics/products/all-products/system-monitoring/open-interfaces/fronius-solar-api-json-).
 * Working IP communication to inverter (test by accessing http://FRONIUS-IP/solar_api/v1/GetInverterRealtimeData.cgi?Scope=System)
-* (optional) Fronius smart meter (for monitoring consumption)
+* (optional) Fronius smart meter for monitoring consumption
 * (optional) Fronius smart loads, such as [Ohm Pilot](https://www.fronius.com/en/photovoltaics/products/all-products/solutions/fronius-solution-for-heat-generation/fronius-ohmpilot/fronius-ohmpilot)
 
 # Usage
