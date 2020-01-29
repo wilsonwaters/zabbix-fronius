@@ -4,7 +4,7 @@ Zabbix template for monitoring Fronius inverters
 # Introduction
 This [Zabbix](https://www.zabbix.com/) template allows monitoring of Fronius devices such as inverters, dataloggers and smart loads through the [Fronius Solar API V1](https://www.fronius.com/en/photovoltaics/products/all-products/system-monitoring/open-interfaces/fronius-solar-api-json-).
 
-[graph of solar usage showing energy used and generated](https://raw.githubusercontent.com/wilsonwaters/zabbix-fronius/master/doc/fronius-graph.png "Example graph")
+![graph of solar usage showing energy used and generated](https://raw.githubusercontent.com/wilsonwaters/zabbix-fronius/master/doc/fronius-graph.png "Example graph")
 
 The template uses Zabbix dependant items to reduce the number of API calls made to the device. One API call is made and multiple dependant items use javascript pre-processing to parse the required field from the response.
 
