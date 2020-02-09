@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2020-01-29T14:40:46Z</date>
+    <date>2020-02-09T12:12:27Z</date>
     <groups>
         <group>
             <name>Solar</name>
@@ -104,6 +104,192 @@ return dayEnergy ;</params>
                     </master_item>
                 </item>
                 <item>
+                    <name>Energy Consumed Meter Total</name>
+                    <type>18</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>fronius.EnergyReal_WAC_Sum_Consumed</key>
+                    <delay>0</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>Wh</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Smart meter energy consumption</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Solar</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>12</type>
+                            <params>$.Body.Data.0.EnergyReal_WAC_Sum_Consumed</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item>
+                        <key>fronius.GetMeterRealtimeData</key>
+                    </master_item>
+                </item>
+                <item>
+                    <name>Energy Consumed Meter Day</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>fronius.energy_consumed_meter_day</key>
+                    <delay>30s</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>Wh</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params>last(&quot;fronius.EnergyReal_WAC_Sum_Consumed&quot;)-last(&quot;fronius.energy_consumed_meter_startofday&quot;)</params>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Energy consumption from the grid today</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Solar</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Energy Consumed Meter start-of-day</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>fronius.energy_consumed_meter_startofday</key>
+                    <delay>0;h0</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>Wh</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params>last(&quot;fronius.EnergyReal_WAC_Sum_Consumed&quot;)</params>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Energy consumption from the grid at the start of today</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Solar</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item/>
+                </item>
+                <item>
                     <name>Device Error Code</name>
                     <type>18</type>
                     <snmp_community/>
@@ -183,7 +369,7 @@ return dayEnergy ;</params>
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>W</units>
+                    <units>Hz</units>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -844,7 +1030,7 @@ These items only work if your system has a smart meter installed</description>
                     </master_item>
                 </item>
                 <item>
-                    <name>Ohmpilot Total Energy Consumption</name>
+                    <name>Ohmpilot Total Energy Consumed</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -855,7 +1041,7 @@ These items only work if your system has a smart meter installed</description>
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>Wh</units>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -912,7 +1098,7 @@ These items only work if your system has a smart meter installed</description>
                     </master_item>
                 </item>
                 <item>
-                    <name>Ohmpilot Power Consumption</name>
+                    <name>Ohmpilot Power Consumed</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1048,7 +1234,7 @@ These items only work if your system has a smart meter installed</description>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Generation</name>
+                    <name>Power Generated</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1125,7 +1311,7 @@ return pac;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption meter</name>
+                    <name>Power Consumed meter</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1193,7 +1379,7 @@ return pac;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption Phase 1</name>
+                    <name>Power Consumed Phase 1</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1261,7 +1447,7 @@ return pac;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption Phase 2</name>
+                    <name>Power Consumed Phase 2</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1329,7 +1515,7 @@ return pac;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption Phase 3</name>
+                    <name>Power Consumed Phase 3</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1397,7 +1583,7 @@ return pac;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption excluding Smartloads</name>
+                    <name>Power Consumed excluding Smartloads</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1450,9 +1636,12 @@ if (apiResponse.Body.Data.Smartloads != undefined) {
    }
 }
 
-//var ohmPilotConsumption = apiResponse.Body.Data.Smartloads.Ohmpilots[720896].P_AC_Total;
+var consumption = (-powerConsumption) - ohmPilotConsumption;
 
-return (-powerConsumption) - ohmPilotConsumption;</params>
+// consumption can be negative sometimes which is silly in this situation. I think this happens
+// because the P_Load and P_AC_Total from Fronius aren't measured at exactly the same time (even though it's in the same API call)
+// Simply clamp the value to 0w
+return Math.max(0, consumption);</params>
                             <error_handler>0</error_handler>
                             <error_handler_params/>
                         </step>
@@ -1549,7 +1738,7 @@ return (-powerConsumption) - ohmPilotConsumption;</params>
                     </master_item>
                 </item>
                 <item>
-                    <name>Power Consumption</name>
+                    <name>Power Consumed</name>
                     <type>18</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -2554,6 +2743,18 @@ return va;</params>
                 </graph_item>
                 <graph_item>
                     <sortorder>1</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>FFCDD2</color>
+                    <yaxisside>1</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Fronius Solar</host>
+                        <key>fronius.energy_consumed_meter_day</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>EF9A9A</color>
                     <yaxisside>0</yaxisside>
@@ -2565,7 +2766,7 @@ return va;</params>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>2</sortorder>
+                    <sortorder>3</sortorder>
                     <drawtype>0</drawtype>
                     <color>1A7C11</color>
                     <yaxisside>0</yaxisside>
@@ -2577,7 +2778,7 @@ return va;</params>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
+                    <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
                     <color>FF4000</color>
                     <yaxisside>0</yaxisside>
